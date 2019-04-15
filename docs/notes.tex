@@ -1,7 +1,13 @@
 \documentclass[11pt]{article}
 
+\usepackage{amsmath}
 \usepackage{fullpage}
+\usepackage{stmaryrd}
 
+\newcommand{\ff}{\mathbf{f}}
+\newcommand{\nn}{\mathbf{n}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\xx}{\mathbf{x}}
 
 
 \begin{document}
@@ -46,6 +52,67 @@ cell structure) and play a key role in mitosis (cell division).
   uniformly with respect to arclength, or they are distributed uniformly
   with respect to curvature.
 \end{itemize}
+
+\section{Governing Equations}
+We represent the nucleus as a two-dimensional inextensible bilayer
+structure that is filled with and submerged in a viscous incompressible
+fluid (inextensible vesicle).  Then the fluid equations in the fluid
+bulk are
+\begin{align}
+  \mu_e \Delta \uu &= \nabla p, \quad \xx \in \Omega, \\
+  \nabla \cdot \uu &= 0, \quad \xx \in \Omega,
+\end{align}
+and inside the nucleus they are
+\begin{align}
+  \mu_i \Delta \uu &= \nabla p, \quad \xx \in \omega, \\
+  \nabla \cdot \uu &= 0, \quad \xx \in \omega.
+\end{align}
+The viscosity ratio $\nu = \mu_e/mu_i$ is a parameter in our model.  The
+boundary conditions on the nucleus $\gamma$, which is parameterized as
+$\xx(s,t)$, are 
+\begin{align}
+  \dot{\xx} &= \uu \\
+  \llbracket T \rrbracket \nn &= \ff
+\end{align}
+where $\llbracket T \rrbracket$ is the traction jump across the
+membrane.  The interfacial force $\ff$ is a combination of bending,
+tension, and point forces.  The bending force penalizes curvature and is
+given by
+\begin{align}
+  \ff = -\kappa_b \xx_{ssss},
+\end{align}
+where $\kappa_b$ is the bending stiffness.  The tension force is
+\begin{align}
+  (\sigma \xx_s)_s,
+\end{align}
+where the tension $\sigma$ acts as a Lagrange multiplier to satisfy the
+local inextensibility constraint.  We are interested in the new point
+forces that come from a microtubule linking the centrosome to the
+nucleus.  We assume there are two centrosomes placed symmetrically about
+the nucleus
+
+Based on the probability of a microtubule connecting a centrosome to the
+nucleus, the point force potential at a point $\xx$ on the nucleus
+membrane is
+\begin{align}
+  \phi(\xx) = W\exp\left(-\frac{\|\xx - \xx_0\|^2}{d} 
+                         -\frac{\|\xx + \xx_0\|^2}{d}\right),
+\end{align}
+where $\pm \xx_0$ are the fixed locations of the centrosomes, $d$ is
+a parameter corresponding to a length scale of the potential, and $W$
+sets the magnitude of the point forces.  We always assume that the
+nucleus is centered at the origin and has symmetry in both the $x$ and
+$y$ directions.
+
+
+\section{Results}
+
+
+
+
+
+
+
 
 
 
